@@ -1,6 +1,5 @@
 .DS_Store
 .vs_code/
-
 *.log
 *.synctex.gz
 *.fdb_latexmk
