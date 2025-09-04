@@ -3,6 +3,6 @@
 *.log
 *.synctex.gz
 *.fdb_latexmk
-*.bak0
+*.bak*
 *.aux
 *.fls
