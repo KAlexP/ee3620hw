@@ -178,89 +178,127 @@
 }
 \begin{document}
 \begin{problem}[{1.1}]
-\\ \textbf{Given:} Is each of the following 1-D signals:
-   \begin{itemize}
-     \item Analog or digital?
-     \item Continuous-time or discrete-time?
-   \end{itemize}
-\textbf{Find:}
+\\ \textbf{Given:} The following signals
 \begin{itemize}
 	\item[a.] Daily closes of the stock market.
 	\item[b.] Output from phonograph-record pickup.
+\end{itemize}
+\textbf{Find:}
+Is each of the following 1-D signals:
+\begin{itemize}
+	\item Analog or digital?
+	\item Continuous-time or discrete-time?
 \end{itemize}~
 \vspace{-2em}
 \end{problem}
 \begin{answer}
- 	\begin{itemize}
-   	\item words
- 	\end{itemize}~
+	\begin{itemize}
+		\item[a.] The value of a stock can be any real number, which makes daily closes analog.
+		      The stock market closing happens once per day; therefore, stock market closes are discrete-time.
+		\item[b.] A phonograph is analog time and continuous time.
+	\end{itemize}~
 \end{answer}
 \newpage
 \begin{problem}[{1.2}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} The following signals
 \begin{itemize}
-	\item[a.]
-	\item[c.]
+	\item[a.] Image in a telescope eyepiece
+	\item[c.] Image stored in a digital camera
+\end{itemize}
+\textbf{Find:} Is each of these 2-D signals
+\begin{itemize}
+	\item Analog or digital?
+	\item Continuous or discrete?
 \end{itemize}~
 \vspace{-2em}
 \end{problem}
 \begin{answer}
-	Answer Section
+	\begin{itemize}
+		\item[a.] An image in the eyepiece of a telescope would be analog because the waves do not have
+		      limited values. An image in a telescope would be continuous because you can continue to look
+		      through the eyepiece and the image doe not end or have a frame-rate.
+		\item[c.] An image stored in a digital camera is digital, hence the name of the camera, because
+		      the image has a limited range of values. An image in a digital camera is also a singular moment
+		      in time meaning it is discrete.
+	\end{itemize}~
 \end{answer}
 \newpage
 \begin{problem}[{1.3}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} The following signals are 2-D in space and 1-D in time, so they are 3-D signals.
 \begin{itemize}
-	\item[b.]
-	\item[c.]
+	\item[b.] A movie stored on film
+	\item[c.] A movie stored on DVD
+\end{itemize}
+\textbf{Find:} Is each of these 3-D signals:
+\begin{itemize}
+	\item Analog or digital?
+	\item Continuous or discrete?
 \end{itemize}~
 \vspace{-2em}
 \end{problem}
 \begin{answer}
-	Answer Section
+	\begin{itemize}
+		\item[b.] A movie stored on film could be considered analog in space and continuous in space
+		      because the film's resolution is determined by photons. A movie on film is discrete in time
+		      because there individual frames.
+		\item[c.] A movie stored on DVD could be considered digital and discrete in space because the signal or information
+		      is stored in distinct quantities and only so many pixels. A movie stored on DVD could be considered discrete because it
+		      still has individual frames or moments in time.
+	\end{itemize}~
 \end{answer}
 \newpage
 \begin{problem}[{1.4}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
-\begin{itemize}
-	\item[a.]
-\end{itemize}~
-\vspace{-2em}
+\\ \textbf{Given:} The waveform $x_1(t)$ below
+\begin{center}
+	\includegraphics[scale=0.5]{1.4.png}
+\end{center}
+\textbf{Find:} $x_1[-(t+40)]$
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
 \newpage
 \begin{problem}[{1.6}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
-\begin{itemize}
-	\item[b.]
-\end{itemize}~
-\vspace{-2em}
+\\ \textbf{Given:}The waveform of $x_3(t)$ in the image below.
+\begin{center}
+	\includegraphics[scale=0.25]{1.6.png}
+\end{center}
+\textbf{Find:} generate and plot the waveform of: (b) $x_3[-2(t-1)]$.
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
 \newpage
 \begin{problem}[{1.7}]
-\\ \textbf{Given:}\\
+\\ \textbf{Given:} The waveform $x_4(t)$ is given by
+  \[
+    x_4(t) = 
+    \begin{cases}
+      0 & t\leq 0,\\
+      {\big(\frac t2\big)}^2 & 0 \leq t \leq 2s,\\
+      1 & 2\leq t \leq 4 s,\\
+      f(t) & 4\leq t\leq 6s,\\
+      0 & t\geq 6\\
+    \end{cases}
+  \]
+  \begin{center}
+    \includegraphics[scale=0.2]{1.7.png}
+  \end{center}
 \textbf{Find:}
+\begin{itemize}
+  \item[a.] Obtain an expression for $f(t)$, which is the segment covering the time between 4 s and 
+  6 s.
+  \item[b.] Obtain an expression for $x_4(-(t-4))$ and plot it.
+\end{itemize}~
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
 \newpage
 \begin{problem}[{1.11}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} Given teh waveform of $x(t)$ shown below
+\begin{center}
+  \includegraphics[scale=0.2]{1.11.png}
+\end{center}
+\textbf{Find:} Generate and plot the waveform of 
+\begin{itemize}
+  \item[a.] $x(3t+6)$
+  \item[b.] $x(-3t+6)$
+  \item[c.] $x(-3t-6)$
+\end{itemize}~
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
 \newpage
 \begin{problem}[{H}]
 \\ \textbf{Given:} Euler's formula\\
@@ -273,15 +311,24 @@ and
 	\sin x = \frac{e^{jx}-e^{-jx}}{2j}
 \]
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
 \newpage
 \begin{problem}[{I}]
 \\ \textbf{Given:} The discusion in Lecture and the lecture notes.\\
 \textbf{Find:} List at least ten examples of signals encountered in real life.
 \end{problem}
 \begin{answer}
-	Answer Section
+	The following are some examples of signals that can be encountered in real life.
+  \begin{enumerate}
+    \item music or sound 
+    \item visible light 
+    \item earthquakes or vibrations 
+    \item brain signals 
+    \item radio signals 
+    \item computer images 
+    \item LiDAR signals 
+    \item X-Ray signals 
+    \item Ifrared signals 
+    \item electric signals
+  \end{enumerate}~
 \end{answer}
 \end{document}
