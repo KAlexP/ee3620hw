@@ -182,97 +182,115 @@
 \begin{problem}[{1.16}]
 \\ \textbf{Given:} The following functions
 \begin{itemize}
-  \item[a.] $x_1(t) = 3t^2+4t^4$
+	\item[a.] $x_1(t) = 3t^2+4t^4$
 	\item[b.] $x_2(t) = 3t^3$
 \end{itemize}
 \textbf{Find:}	For each of the following functions, indicate if it exhibits even symmetry, odd
 symmetry, or neither one.\\
 \end{problem}
+
+\newpage
+
 \begin{problem}[{1.17}]
-\\ \textbf{Given:} The following functions 
+\\ \textbf{Given:} The following functions
 \begin{itemize}
-  \item[a.] $x_1(t) = 4[\sin(3t) + \cos(3t)]$
-  \item[b.] $x_2(t) = \frac{\sin(3t)}{3t}$
+	\item[a.] $x_1(t) = 4[\sin(3t) + \cos(3t)]$
+	\item[b.] $x_2(t) = \frac{\sin(3t)}{3t}$
 \end{itemize}
-\textbf{Find:}
+\textbf{Find:} For each function, indicate if it exhibits even symmetry, odd symmetry, or neither
+one.
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
+\newpage
+
 \begin{problem}[{1.20}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} The following step functions
 \begin{itemize}
 	\item[b.]
 	\item[c.]
-\end{itemize}~
+\end{itemize}
+
+\textbf{Find:}	Generate plots for each of the following step-function
+wave forms over the time span from $-5s$ to $+5s$.\\
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
+\newpage
+
 \begin{problem}[{1.21}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
-\begin{itemize}
-	\item[d.]
-	\item[e.]
-\end{itemize}~
+\\ \textbf{Given:} Figure 1.21
+\begin{center}
+  \includegraphics[scale=0.25]{fig_p1.21.png}
+\end{center}
+\textbf{Find:} Provide expressions in terms of step functions for the waveforms displayed in the 
+figure above for d and e.
 \end{problem}
 \begin{answer}
-	Answer Section
+\begin{itemize}
+  \item[d.]	Using $u(t)$ as the step function and $u_T(t)$ is $u(t-T)$
+    \begin{align*}
+      \uuline{x_4(t) = 6u(t) - 2u(t-1) - 2u(t-3)}
+    \end{align*}
+  \item[e.] Using $u(t)$ as the step function and $u_T(t)$ is $u(t-T)$
+    \begin{align*}
+      \uuline{x_5(t) = 2u(t) + 4u(t-1) - 4u(t-3)}
+    \end{align*}
+\end{itemize}~
 \end{answer}
+
+\newpage
+
 \begin{problem}[{1.22}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:}The following functions
 \begin{itemize}
-	\item[a.]
-	\item[d.]
-\end{itemize}~
+	\item[a.] $x_1(t) = 5r(t+2)-5r(t)$
+  \item[d.] $x_4(t) = 10\text{rect}\big(\frac{t+1}{2}\big)-10\text{rect}\big(\frac{t-3}{2})$
+\end{itemize}
+\textbf{Find:} Generate plots for each of the above functions over the time span from $-4s$ to 
+$+4s$.
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
+\newpage
+
 \begin{problem}[{1.23}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
-\begin{itemize}
-	\item[b.]
-\end{itemize}~
+\\ \textbf{Given:} Figure 1.23
+\begin{center}
+  \includegraphics[scale=0.25]{fig_p1.23.png}
+\end{center}
+\textbf{Find:} Provide expressions for the waveforms displayed in Fig P1.23 in terms of ramp and 
+step functions (part b).
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
+\newpage
+
 \begin{problem}[{1.28}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} The following equation
 \begin{itemize}
-	\item[c.]
-\end{itemize}~
+  \item[c.] $y_3(t) = \int_{-3}^{-1} t^5\delta(3t+2){dt}$
+\end{itemize}
+\textbf{Find:} Using the sampling property of impulses to compute the above equation.
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
+\newpage
+
 \begin{problem}[{1.29}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} The following equations
 \begin{itemize}
-	\item[b.]
-	\item[c.]
-\end{itemize}~
+  \item[b.] $ y_2(t) = \int^\infty_{-\infty}\cos(t)\delta(t- \frac\pi2){dt} $
+  \item[c.] $ y_3(t) = \int_{-3}^{-1}t^5 t^5\delta(t+2){dt}$
+\end{itemize}
+\textbf{Find:} Using the sampling property of impulses to compute the above equations
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
+
+\newpage
+
 \begin{problem}[{1.35}]
-\\ \textbf{Given:}\\
-\textbf{Find:}
+\\ \textbf{Given:} The following signals
 \begin{itemize}
-	\item[b.]
-	\item[c.]
-\end{itemize}~
+  \item[b.] $x_2(t) = [t\cos(3t)]u(t)$
+  \item[c.] $x_3(t) = [e^{-2t}\sin(t)]u(t)$
+\end{itemize}
+\textbf{Find:} Determine if each of the above signals is a power signal, an energy signal or 
+neither.
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
 
 \end{document}
