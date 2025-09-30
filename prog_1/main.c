@@ -59,6 +59,33 @@ FILE *fout = fopen("prog_sol_1.txt","w");
     return EXIT_FAILURE;
   }
 
+  // Declare and Initialize variables
+  double y, y0;
+  double delta_t = 0.01f;
+  double time = 0;
+  double a = -2.5f;
+  double N = 5.0f;
+  double i;
+
+  // Prompt initial value
+  printf("Enter initial Value: ");
+  scanf("%lf",&y0);
+  // Prompt a value. In this case -2.5
+  printf("Enter a: ");
+  scanf("%lf",&a);
+
+  y = y0;
+
+  // Print the initial time
+  fprintf(fout,"%lf\t%lf\n",time,y);
+  for( i = 0; i < N; i += delta_t){
+    // Do the calculation
+    y = (1+a*delta_t) * y;
+    // Print the t, y(t) coordinate
+    fprintf(fout,"%lf\t%lf\n",time,y);
+    time += delta_t;
+  }
+
   return EXIT_SUCCESS;
 }
 // Problem 2 Code
@@ -69,7 +96,12 @@ FILE *fout = fopen("prog_sol_2.txt","w");
     return EXIT_FAILURE;
   }
 
+  double I[][3] = {{1,0,0},{0,1,0},{0,0,1}};
+  double A[][3] = {{0,1,0},{0,0,1},{2.5063,25.1125,0.6}};
+  double x_t[3] = {1.5,2,-1};
 
+  double delta_t = 0.01f;
+  double time = 0;
   return EXIT_SUCCESS;
 }
 // Problem 3 Code
