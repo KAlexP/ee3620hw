@@ -13,30 +13,41 @@ void mat_sub(double left[][3], double right[][3], double diff[][3]);
 void mat_vec_mult(double mat[][3], double *v, double *prod);
 
 int main(int argc, char** argv){
+  //  Begin Program
   int problem = 1;
+  // If no arguements prompt and recieve input
   if(argc < 2){
     printf("Enter problem problem: ");  // Prompt user to select problem
     scanf("%d", &problem);              // accept user input
   } else {
+  // else use command line arguement
     problem = atoi(argv[1]);            // Assign the value from the command line
   }
-  
+  // create flags
   bool done = false;
   char count = 0;
+
+  printf("res: %d\n", (1 > 0) ? EXIT_SUCCESS : EXIT_FAILURE);
+
+  // Loop through each of the problems
   while(!done){
     (count > 2) ? done = true: count++;
     switch(problem){
-      case 1: problem_1() ? printf("Problem 1 success\n"): printf("Error in Problem 1\n");
+      case 1: (problem_1() == 0) ? printf("Problem 1 success\n") : printf("Error in Problem 1\n");
         break;
-      case 2: problem_2() ? printf("Problem 1 success\n"): printf("Error in Problem 1\n");
+      case 2: (problem_2() == 0) ? printf("Problem 2 success\n") : printf("Error in Problem 2\n");
         break;
-      case 3: problem_3() ? printf("Problem 1 success\n"): printf("Error in Problem 1\n");
+      case 3: (problem_3() == 0) ? printf("Problem 3 success\n") : printf("Error in Problem 3\n");
         break;
       default: 
         printf("Error please choose 1-3.\n");
         break;
     }
+    printf("Enter problem: ");
+    scanf("%d",&problem);
   }
+
+  // End Program
   return EXIT_SUCCESS;
 }
 
@@ -48,12 +59,11 @@ FILE *fout = fopen("prog_sol_1.txt","w");
     return EXIT_FAILURE;
   }
 
-
   return EXIT_SUCCESS;
 }
 // Problem 2 Code
 int problem_2(void){
-FILE *fout = fopen("dump_file","w");
+FILE *fout = fopen("prog_sol_2.txt","w");
   if(fout == NULL){
     perror("output file failed");
     return EXIT_FAILURE;
@@ -64,11 +74,13 @@ FILE *fout = fopen("dump_file","w");
 }
 // Problem 3 Code
 int problem_3(void){
- FILE *fout = fopen("dump_file","w");
+ FILE *fout = fopen("prog_sol_3.txt","w");
   if(fout == NULL){
     perror("output file failed");
     return EXIT_FAILURE;
   } 
+
+  return EXIT_SUCCESS;
 }
 
 // scale matrix `mat` by a and save in prod
@@ -97,7 +109,7 @@ void mat_vec_mult(double mat[][3], double *v, double *prod){
   for(i = 0; i < 3; i++){
     sum = 0;
     for (j = 0; j < 3; j++){
-      sum += m[i][j] * v[y];
+      sum += mat[i][j] * v[j];
     }
     prod[i] = sum;
   }
