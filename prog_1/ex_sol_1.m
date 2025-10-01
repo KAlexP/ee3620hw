@@ -1,10 +1,10 @@
 
-x = 0:0.01:5;
+x = 0:0.01:10;
 y = 3 * exp(-2.5 * x);
 figure;
 plot(x, y)
 xlabel('t');
-ylabel('y');
+ylabel('y(t)');
 title('Exact solution of (D+2.5)y(t) = 0');
 grid on;
 

@@ -27,8 +27,6 @@ int main(int argc, char** argv){
   bool done = false;
   char count = 0;
 
-  printf("res: %d\n", (1 > 0) ? EXIT_SUCCESS : EXIT_FAILURE);
-
   // Loop through each of the problems
   while(!done){
     (count > 2) ? done = true: count++;
@@ -51,7 +49,7 @@ int main(int argc, char** argv){
   return EXIT_SUCCESS;
 }
 
-
+// Problem 1 Code
 int problem_1(void){
 FILE *fout = fopen("prog_sol_1.txt","w");
   if(fout == NULL){
@@ -61,12 +59,13 @@ FILE *fout = fopen("prog_sol_1.txt","w");
 
   // Declare and Initialize variables
   double y, y0;
-  double delta_t = 0.01f;
+  double delta_t = 0.001;
   double time = 0;
-  double a = -2.5f;
-  double N = 5.0f;
-  double i;
+  double a = -2.5;
+  double N = 10.000;
 
+
+  printf("%.10lf\n",N);
   // Prompt initial value
   printf("Enter initial Value: ");
   scanf("%lf",&y0);
@@ -77,17 +76,17 @@ FILE *fout = fopen("prog_sol_1.txt","w");
   y = y0;
 
   // Print the initial time
-  fprintf(fout,"%lf\t%lf\n",time,y);
-  for( i = 0; i < N; i += delta_t){
+  for(time = 0.0; time < (N + delta_t); time += delta_t){
+    // Print the t, y(t) coordinate
+    fprintf(fout,"%0.3lf\t%0.10lf\n",time,y);
+    //printf("%0.3lf\t%0.10lf\n",time,y);
     // Do the calculation
     y = (1+a*delta_t) * y;
-    // Print the t, y(t) coordinate
-    fprintf(fout,"%lf\t%lf\n",time,y);
-    time += delta_t;
   }
 
   return EXIT_SUCCESS;
 }
+
 // Problem 2 Code
 int problem_2(void){
 FILE *fout = fopen("prog_sol_2.txt","w");
@@ -102,6 +101,8 @@ FILE *fout = fopen("prog_sol_2.txt","w");
 
   double delta_t = 0.01f;
   double time = 0;
+  
+
   return EXIT_SUCCESS;
 }
 // Problem 3 Code
