@@ -1,4 +1,4 @@
-data = load('./prog_sol_1.txt');
+data = load('./prog_sol_2.txt');
 x = data(:,1);
 y = data(:,2);
 
@@ -23,5 +23,5 @@ xlabel('t')
 grid on;
 xlim([0 10])
 
-saveas(gcf,'./fig_1.png');
+saveas(gcf,'./fig_2.png');
 
