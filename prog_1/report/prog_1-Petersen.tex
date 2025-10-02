@@ -6,6 +6,19 @@
 \usepackage{amsmath}
 \usepackage{pgfplots}
 
+\lstset{
+  language=c,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=[1]\color{blue}\textbf,
+  keywordstyle=[2]\color{red}\textbf,
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  numbers = left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  tabsize=4,
+  showstringspaces=false
+}
 
 \begin{document}
 
@@ -19,4 +32,5 @@
   \includegraphics[scale=0.5]{../fig_2_overlay.png}
   \caption{The Exact solution compared to the numeric approximation in Problem 2.}
 \end{figure}
+\lstinputlisting{./../main.c}
 \end{document}
