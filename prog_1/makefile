@@ -1,16 +1,16 @@
 CC = gcc
 CFLAGS = -Werror
 
-objects = main.c vec_funcs.o prob1.o prob2.o prob3.o
+obj_files = vec_funcs.o prob1.o prob2.o prob3.o
+src_files = main.c vec_funcs.c prob1.c prob2.c prob3.c
 
-all: $(objects)
-	$(CC) $^ -o main
+.PHONY: all, clean
+
+main: main.c $(obj_files)
+	$(CC) main.c $(obj_files) $(CFLAGS) -o main
 
 $(objects): %.o: %.c
-	$(CC) -c $^ -o $@
-
-main.c:
-	echo "Error Main doesn't exist"
+	$(CC) -c $^ -o $@ $(CFLAGS)
 
 clean:
 	rm -rf *.o
