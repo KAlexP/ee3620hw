@@ -20,17 +20,78 @@
   showstringspaces=false
 }
 
-\begin{document}
+\author{Kelson A. Petersen}
+\date{\today}
+\title{Program 1 Report}
 
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\newpage
+\section{Problem 1}
 \begin{figure}[!h]
   \center
   \includegraphics[scale=0.5]{../fig_1_overlay.png}
   \caption{The Exact solution compared to the numeric approximation of Problem 1.}
 \end{figure}
+
+
+\newpage
+\section{Problem 2}
 \begin{figure}[!h]
   \center
   \includegraphics[scale=0.5]{../fig_2_overlay.png}
   \caption{The Exact solution compared to the numeric approximation in Problem 2.}
 \end{figure}
+
+
+\newpage
+\section{Problem 3}
+
+
+\newpage
+\section{Code}
+
+In this section there will be brief descriptions of the code followed by the code.
+
+
+The first file included here is a file named `main.h'. This file is the header file 
+that contains the preview of the function for the compiler allowing the definitions 
+of the functions to be in different files.
+\lstinputlisting{./../main.h}
+
+
+The following code is the entry point of the program that simply calls the correct 
+function that corresponds to the problem selected by the user. There is basic error 
+messages that are printed if the function called fails to create the necessary files.
 \lstinputlisting{./../main.c}
+
+
+The following code is the code solution for problem one. This code was mostly given in
+the program assignment description, but the loop creates a file containing x and y 
+coordinates to generate a graph.
+\lstinputlisting{./../prob1.c}
+
+
+The following code is the code solution for problem two. This is an extension of the 
+code in problem one, but for higher order equations. We are able to use the state-space 
+form of a differential equation to make this process work. We put the equation in the 
+state-space form by using matrices.
+\lstinputlisting{./../prob2.c}
+
+
+The following code is the code for a differential equation that was derived from a RLC 
+circuit in problem three. It is solve the same way as problem 2.
+\lstinputlisting{./../prob3.c}
+
+
+The following code was given in the program 1 description. It is a collection of matrix 
+operation functions, and the functions allow the matrix operations.
+\lstinputlisting{./../vec_funcs.c}
+
+\lstinputlisting{./../makefile}
+
 \end{document}
