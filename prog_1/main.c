@@ -28,30 +28,23 @@ int main(int argc, char** argv) {
   bool done  = false;
   char count = 0;
 
-  // Loop through each of the problems
-  while (!done) {
-    (count > 0) ? done = true : count++;
-    if (!done) {
-      switch (problem) {
-        case 1:
-          (problem_1() == 0) ? printf("Problem 1 success\n")
-                             : printf("Error in Problem 1\n");
-          break;
-        case 2:
-          (problem_2() == 0) ? printf("Problem 2 success\n")
-                             : printf("Error in Problem 2\n");
-          break;
-        case 3:
-          (problem_3() == 0) ? printf("Problem 3 success\n")
-                             : printf("Error in Problem 3\n");
-          break;
-        default:
-          printf("Error please choose 1-3.\n");
-          break;
-      }
-    }
+  switch (problem) {
+    case 1:
+      (problem_1() == 0) ? printf("Problem 1 success\n")
+                         : printf("Error in Problem 1\n");
+      break;
+    case 2:
+      (problem_2() == 0) ? printf("Problem 2 success\n")
+                         : printf("Error in Problem 2\n");
+      break;
+    case 3:
+      (problem_3() == 0) ? printf("Problem 3 success\n")
+                         : printf("Error in Problem 3\n");
+      break;
+    default:
+      printf("Error please choose 1-3.\n");
+      break;
   }
-
   // End Program
   return EXIT_SUCCESS;
 }
@@ -64,17 +57,18 @@ int problem_1(void) {
     return EXIT_FAILURE;
   }
   // Declare and Initialize variables
-  double y = 3.0;
+  double y       = 3.0;
   double delta_t = 0.001;
   double time    = 0;
   double a       = -2.5;
-  double N       = 10.000;
+  // This line doesn't change in the loop
+  a = (1 + a * delta_t);
   // Do the math iteratively in a loop
   for (time = 0.0; time < 10.0; time += delta_t) {
     // Print the t, y(t) coordinate
     fprintf(fout, "%0.3lf\t%0.10lf\n", time, y);
     // Do the calculation
-    y = (1 + a * delta_t) * y;
+    y = a * y;
   }
   return EXIT_SUCCESS;
 }
@@ -86,18 +80,20 @@ int problem_2(void) {
     perror("output file failed");
     return EXIT_FAILURE;
   }
-  double I[][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
-  double A[][3] = {{0, 1, 0}, {0, 0, 1}, {-2.5063, -25.1125, -0.6}};
-  double x_t[3] = {1.5, 2, -1};
+  double I[][3]  = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+  double A[][3]  = {{0, 1, 0}, {0, 0, 1}, {-2.5063, -25.1125, -0.6}};
+  double x_t[3]  = {1.5, 2, -1};
   double delta_t = 0.001f;
   double time;
-
-  mat_scale(delta_t,A,A);
-  mat_add(I,A,A);
-
+  // avoid unnecessary function calls in loop
+  mat_scale(delta_t, A, A);
+  mat_add(I, A, A);
+  // Do iterative math
   for (time = 0.0; time < 10.0; time += delta_t) {
-    fprintf(fout,"%.3lf\t%.10lf\n",time,x_t[0]);
-    mat_vec_mult(A,x_t,x_t);
+    // print the result
+    fprintf(fout, "%.3lf\t%.10lf\n", time, x_t[0]);
+    // get next x_t value
+    mat_vec_mult(A, x_t, x_t);
   }
   return EXIT_SUCCESS;
 }
@@ -141,7 +137,6 @@ void mat_add(double left[][3], double right[][3], double sum[][3]) {
     }
   }
 }
-
 
 // Unsafe if used incorrectly!
 void mat_vec_mult(double mat[][3], double* vector, double* prod) {

@@ -1,0 +1,14 @@
+z = [-0.100002,-0.249999 + 5j, -0.249999 - 5j];
+
+p = plot(real(z),imag(z),"o");
+p.Parent.XAxisLocation = 'origin';
+p.Parent.YAxisLocation = 'origin';
+grid on;
+
+xlim([-0.3 0.3])
+ylim([-5.5 5.5])
+
+xlabel("\tau")
+ylabel("j")
+title('Roots to differential equation in Problem 2')
+saveas(gca,'roots.png')
