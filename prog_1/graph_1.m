@@ -25,3 +25,14 @@ xlim([0 10])
 
 saveas(gcf,'./fig_1.png');
 
+figure;
+
+plot(x2, y2,'b--','LineWidth',1,'DisplayName','Exact Solution')
+hold on;
+plot(x,y,'r:','LineWidth',1,'DisplayName','Numeric Approximation')
+hold off;
+grid on;
+
+legend show;
+
+saveas(gcf,'fig_1_overlay.png');
