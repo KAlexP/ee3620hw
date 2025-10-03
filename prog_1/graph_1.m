@@ -33,6 +33,13 @@ plot(x,y,'r:','LineWidth',1,'DisplayName','Numeric Approximation')
 hold off;
 grid on;
 
-legend show;
+lgd = legend('Exact solution','Numeric Approximation','Location','best');
+lgd.Box = 'on';
+lgd.AutoUpdate = 'off';
 
-saveas(gcf,'fig_1_overlay.png');
+lgd.ItemTokenSize = [15,7];
+
+%lgd.Position = [0.6 0.8 0.2 0.1];
+
+exportgraphics(gca,'fig_1_overlay.png','Resolution',300)
+%saveas(gcf,'fig_1_overlay.png');

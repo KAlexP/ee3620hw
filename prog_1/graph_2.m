@@ -10,8 +10,6 @@ cond3 = D2(0) == -1;
 
 ySol(t) = dsolve(ode,cond1,cond2,cond3);
 
-
-
 data = load('./prog_sol_2.txt');
 x = data(:,1);
 y = data(:,2);
@@ -37,6 +35,7 @@ xlim([0 10])
 saveas(gcf,'./fig_2.png');
 
 figure;
+
 fplot(ySol,[0,10],'b--','DisplayName','Exact solution')
 hold on;
 plot(x,y,'r:','LineWidth',1,'DisplayName','Numeric Approximation')
@@ -46,6 +45,14 @@ xlabel('t')
 grid on;
 xlim([0 10])
 
-legend show;
+lgd = legend('Exact solution','Numeric Approximation','Location','best');
+lgd.Box = 'on';
+lgd.AutoUpdate = 'off';
 
-saveas(gcf,'./fig_2_overlay.png')
+lgd.ItemTokenSize = [15,7];
+%lgd.Position = [0.6 0.8 0.2 0.1];
+
+set(gcf, 'Renderer', 'opengl')
+
+exportgraphics(gca,'./fig_2_overlay.png','Resolution',300)
+%saveas(gcf,'./fig_2_overlay.png')
