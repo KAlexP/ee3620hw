@@ -47,7 +47,7 @@
   \includegraphics[scale=0.5]{../fig_1_overlay.png}
   \caption{The Exact solution compared to the numeric approximation of Problem 1.}
 \end{figure}
-
+\lstinputlisting{./../prob1.c}
 
 \newpage
 \section{Problem 2}
@@ -56,56 +56,17 @@
   \includegraphics[scale=0.5]{../fig_2_overlay.png}
   \caption{The Exact solution compared to the numeric approximation in Problem 2.}
 \end{figure}
-
+\lstinputlisting{./../prob2.c}
 \begin{align}
 \frac{21156110196\,\sqrt{10009}\,{\mathrm{e}}^{-\frac{3\,t}{10}}\,\sin\left(\frac{\sqrt{10009}\,t}{20}\right)}{5049641841125}-\frac{5221024\,{\mathrm{e}}^{-\frac{3\,t}{10}}\,\cos\left(\frac{\sqrt{10009}\,t}{20}\right)}{504510125}-\frac{25063\,t}{251125}+\frac{1523972423}{1009020250}
 \end{align}
 
 \newpage
 \section{Problem 3}
-
-
-\newpage
-\section{Code}
-
-In this section there will be brief descriptions of the code followed by the code. I split the program into 
-multiple files to have smaller blocks of code in this document. This code could all be included in one file 
-just as easily.
-
-The first file included here is a file named `main.h'. This file is the header file 
-that contains the preview of the function for the compiler allowing the definitions 
-of the functions to be in different files.
-\lstinputlisting{./../main.h}
-
-The following code is the entry point of the program that simply calls the correct 
-function that corresponds to the problem selected by the user. There is basic error 
-messages that are printed if the function called fails to create the necessary files.
-\lstinputlisting{./../main.c}
-
-The following code is the code solution for problem one. This code was mostly given in
-the program assignment description, but the loop creates a file containing x and y 
-coordinates to generate a graph.
-\lstinputlisting{./../prob1.c}
-
-
-The following code is the code solution for problem two. This is an extension of the 
-code in problem one, but for higher order equations. We are able to use the state-space 
-form of a differential equation to make this process work. We put the equation in the 
-state-space form by using matrices.
-\lstinputlisting{./../prob2.c}
-
-
-The following code is the code for a differential equation that was derived from a RLC 
-circuit in problem three. It is solve the same way as problem 2.
 \lstinputlisting{./../prob3.c}
 
-
-The following code was given in the program 1 description. It is a collection of matrix 
-operation functions, and the functions allow the matrix operations.
-\lstinputlisting{./../vec_funcs.c}
-
-\lstset{language=make}
-Below is the makefile that compiles the program.
-\lstinputlisting{./../makefile}
+\newpage
+\section{C and Matlab Code Used}
+\lstinputlisting{./../main.c}
 
 \end{document}

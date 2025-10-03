@@ -1,5 +1,3 @@
-#include "main.h"
-
 // scale matrix `mat` by a and save in prod
 void mat_scale(double scale, double mat[][3], double prod[][3]) {
   int i, j;

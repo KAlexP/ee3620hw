@@ -1,5 +1,3 @@
-#include "main.h"
-
 // Problem 2 Code
 int problem_2(void) {
   FILE* fout = fopen("prog_sol_2.txt", "w");
