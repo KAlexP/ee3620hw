@@ -1,6 +1,6 @@
 // Problem 1 Code
 int problem_1(void) {
-  FILE* fout = fopen("prog_sol_1.txt", "w");
+  FILE* fout = fopen("./prog_out/prog_sol_1.txt", "w");
   if (fout == NULL) {
     perror("output file failed");
     return EXIT_FAILURE;

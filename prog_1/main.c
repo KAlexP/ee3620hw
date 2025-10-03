@@ -8,6 +8,11 @@ int problem_2(void);
 int problem_3(void);
 
 // Matrix and Vector Functions
+void mat_scale2(double scale, double mat[][2], double prod[][2]);
+void mat_sub2(double left[][2], double right[][2], double diff[][2]);
+void mat_add2(double left[][2], double right[][2], double sum[][2]);
+void mat_vec_mult2(double mat[][2], double* vector, double* prod);
+
 void mat_scale(double scale, double mat[][3], double prod[][3]);
 void mat_sub(double left[][3], double right[][3], double diff[][3]);
 void mat_add(double left[][3], double right[][3], double sum[][3]);
@@ -47,7 +52,7 @@ int main(int argc, char** argv) {
 }
 // Problem 1 Code
 int problem_1(void) {
-  FILE* fout = fopen("prog_sol_1.txt", "w");
+  FILE* fout = fopen("./prog_out/prog_sol_1.txt", "w");
   if (fout == NULL) {
     perror("output file failed");
     return EXIT_FAILURE;
@@ -70,7 +75,7 @@ int problem_1(void) {
 }
 // Problem 2 Code
 int problem_2(void) {
-  FILE* fout = fopen("prog_sol_2.txt", "w");
+  FILE* fout = fopen("./prog_out/prog_sol_2.txt", "w");
   if (fout == NULL) {
     perror("output file failed");
     return EXIT_FAILURE;
@@ -89,6 +94,28 @@ int problem_2(void) {
     fprintf(fout, "%.3lf\t%.10lf\n", time, x_t[0]);
     // get next x_t value
     mat_vec_mult(A, x_t, x_t);
+  }
+  return EXIT_SUCCESS;
+}
+// Problem 3 Code
+int problem_3(void) {
+  FILE* fout = fopen("./prog_out/prog_sol_3.txt", "w");
+  if (fout == NULL) {
+    perror("output file failed");
+    return EXIT_FAILURE;
+  }
+  //double A[][2]  = {{0, 1}, {-195.651, -869.57}};
+  double A[][2] = {{0,1},{-869.57,-195.651}};
+  double I[][2]  = {{1, 0}, {0, 1}};
+  double x_t[2]  = {5, 847.83};
+  double delta_t = 0.001;
+  double time;
+
+  mat_scale2(delta_t, A, A);
+  mat_add2(I, A, A);
+  for (time = 0.0; time <= 10.0; time += delta_t) {
+    fprintf(fout, "%0.3lf,%0.10lf\n", time, x_t[0]);
+    mat_vec_mult2(A, x_t, x_t);
   }
   return EXIT_SUCCESS;
 }
@@ -127,6 +154,47 @@ void mat_vec_mult(double mat[][3], double* vector, double* prod) {
   for (i = 0; i < 3; i++) {
     sum = 0;
     for (j = 0; j < 3; j++) {
+      sum += mat[i][j] * vector[j];
+    }
+    prod[i] = sum;
+  }
+}
+
+// scale matrix `mat` by a and save in prod
+void mat_scale2(double scale, double mat[][2], double prod[][2]) {
+  int i, j;
+  for (i = 0; i < 2; ++i) {
+    for (j = 0; j < 2; ++j) {
+      prod[i][j] = scale * mat[i][j];
+    }
+  }
+}
+// subtract the right from the left and store in diff
+void mat_sub2(double left[][2], double right[][2], double diff[][2]) {
+  int i, j;
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 3; j++) {
+      diff[i][j] = left[i][j] - right[i][j];
+    }
+  }
+}
+// add the right and the left and store into sum
+void mat_add2(double left[][2], double right[][2], double sum[][2]) {
+  int i, j;
+  for (i = 0; i < 2; i++) {
+    for (j = 0; j < 2; j++) {
+      sum[i][j] = left[i][j] + right[i][j];
+    }
+  }
+}
+// Unsafe if used incorrectly!
+// multiplies 3x3 matrix mat with 3x1 vector storing into 3x1 prod
+void mat_vec_mult2(double mat[][2], double* vector, double* prod) {
+  double sum;
+  int    i, j;
+  for (i = 0; i < 2; i++) {
+    sum = 0;
+    for (j = 0; j < 2; j++) {
       sum += mat[i][j] * vector[j];
     }
     prod[i] = sum;

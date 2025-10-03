@@ -1,10 +1,10 @@
 % Load C Program Solution
-data = load('./prog_out/prog_sol_1.txt');
+data = load('./prog_out/prog_sol_3.txt');
 x = data(:,1);
 y = data(:,2);
 % Set up Analyzed solution 
 x2 = 0:0.001:10;
-y2 = 3 * exp(-2.5 * x);
+y2 = -4.667* exp(-191.1 * x)+9.6667*exp(-4.55*x);
 % Start The figure
 figure;
 % Plot The Exact Solution
@@ -20,4 +20,4 @@ lgd.Box = 'on';
 lgd.AutoUpdate = 'off';
 lgd.ItemTokenSize = [15,7];
 % Save graph
-exportgraphics(gca,'./figures/fig_1_overlay.png','Resolution',300)
+exportgraphics(gca,'./figures/fig_3_overlay.png','Resolution',300)
