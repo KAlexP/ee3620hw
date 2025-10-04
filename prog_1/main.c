@@ -6,13 +6,12 @@
 int problem_1(void);
 int problem_2(void);
 int problem_3(void);
-
-// Matrix and Vector Functions
+// 2x2 Matrix and Vector Functions
 void mat_scale2(double scale, double mat[][2], double prod[][2]);
 void mat_sub2(double left[][2], double right[][2], double diff[][2]);
 void mat_add2(double left[][2], double right[][2], double sum[][2]);
 void mat_vec_mult2(double mat[][2], double* vector, double* prod);
-
+// 3x3 Matrix and Vector Functions
 void mat_scale(double scale, double mat[][3], double prod[][3]);
 void mat_sub(double left[][3], double right[][3], double diff[][3]);
 void mat_add(double left[][3], double right[][3], double sum[][3]);
@@ -30,18 +29,17 @@ int main(int argc, char** argv) {
     problem = atoi(argv[1]); // Assign the value from the command line
   }
   // Do the selected problem
-  switch (
-      problem) { // if the problem fails to make a file print Error statement
-    case 1:
-      (problem_1() == 0) ? printf("Problem 1 success\n")
+  switch (problem) { 
+    case 1: // Print success or fail for problem execution
+      !problem_1() ? printf("Problem 1 success\n")
                          : printf("Error in Problem 1\n");
       break;
-    case 2:
-      (problem_2() == 0) ? printf("Problem 2 success\n")
+    case 2: // 
+      !problem_2() ? printf("Problem 2 success\n")
                          : printf("Error in Problem 2\n");
       break;
     case 3:
-      (problem_3() == 0) ? printf("Problem 3 success\n")
+      !problem_3() ? printf("Problem 3 success\n")
                          : printf("Error in Problem 3\n");
       break;
     default:
@@ -71,6 +69,7 @@ int problem_1(void) {
     // Do the calculation
     y = a * y;
   }
+  fclose(fout);
   return EXIT_SUCCESS;
 }
 // Problem 2 Code
@@ -95,6 +94,7 @@ int problem_2(void) {
     // get next x_t value
     mat_vec_mult(A, x_t, x_t);
   }
+  fclose(fout);
   return EXIT_SUCCESS;
 }
 // Problem 3 Code
@@ -104,7 +104,6 @@ int problem_3(void) {
     perror("output file failed");
     return EXIT_FAILURE;
   }
-  //double A[][2]  = {{0, 1}, {-195.651, -869.57}};
   double A[][2] = {{0,1},{-869.57,-195.651}};
   double I[][2]  = {{1, 0}, {0, 1}};
   double x_t[2]  = {5, 847.83};

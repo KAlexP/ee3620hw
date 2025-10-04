@@ -9,6 +9,7 @@
 \usepackage{setspace}
 \usepackage{parskip}
 \usepackage{hyperref}
+\usepackage{pdfpages}
 
 \hypersetup{
  linktoc=all,
@@ -30,7 +31,7 @@
   showstringspaces=false
 }
 
-\author{Kelson A. Petersen}
+\author{Kelson A. Petersen, A02346768}
 \date{\today}
 \title{Program 1 Report}
 
@@ -47,31 +48,69 @@
   \includegraphics[scale=0.5]{../figures/fig_1_overlay.png}
   \caption{The Exact solution compared to the numeric approximation of Problem 1.}
 \end{figure}
+
+Using figure 1 above we see the C program approximate solution and the exact solution
+follow the same curve and we have a good approximation of the first order ODE given 
+by $(D + 2.5)y_0(t) = 0$ with the initial condition $y_0(0)=3$. Scratch work is included 
+at the end of the document.
+
+The following code is the loop responsible for solving the ODE that was given above. The 
+entirety of the code is included later in this document.
 \lstinputlisting{./../prob1.c}
 
 \newpage
 \section{Problem 2}
+
 \begin{figure}[!h]
   \center
   \includegraphics[scale=0.5]{../figures/fig_2_overlay.png}
   \caption{The Exact solution compared to the numeric approximation in Problem 2.}
 \end{figure}
-\lstinputlisting{./../prob2.c}
+Using figure 2 above we compare the exact solution that is the blue dashed line and the 
+approximate solution in the C code below follow a similar path; however, the approximation 
+is less accurate than the exact solution in this case. The oscillilatory nature of this 
+function causes the `average' to be less accurate. Below is the figure that has the roots 
+of the exact solution.
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[scale=0.5]{../figures/roots.png}
+  \caption{The roots of the differential equation for Problem 2.}
+\end{figure}
+
+Below is the equation that was found as the solution for the differential equation given by 
+$D^3 + 0.6D^3 + 25.1125D + 2.5063y_0(t) = 0$. I used matlab to solve.
 \begin{align}
 \frac{21156110196\,\sqrt{10009}\,{\mathrm{e}}^{-\frac{3\,t}{10}}\,\sin\left(\frac{\sqrt{10009}\,t}{20}\right)}{5049641841125}-\frac{5221024\,{\mathrm{e}}^{-\frac{3\,t}{10}}\,\cos\left(\frac{\sqrt{10009}\,t}{20}\right)}{504510125}-\frac{25063\,t}{251125}+\frac{1523972423}{1009020250}
 \end{align}
 
+This is the specific code that was used to calculate the approximation. 
+\lstinputlisting{./../prob2.c}
+
 \newpage
 \section{Problem 3}
+
 \begin{figure}[!h]
   \center 
   \includegraphics[scale=0.5]{./../figures/fig_3_overlay.png}
   \caption{The Exact solution compared to the numeric approximation in Problem 3.}
 \end{figure}
+For the figure above we solved the circuit to find the differential equation that work is shown at the end 
+of the document. The differential equation we end up with is $f(t) = D^2LCR_2(\frac{1}{R+1} + \frac{1}{R_2}) + D(\frac{L}{R_1} + CR_2) + y(t)$.
+We see the approximate solution worked well with this equation as it does not oscillate. If the circuit had a dependend source in it the 
+analytical and numeric solutions would both become more complicated as the non-linearity of the circuit would create 
+different frequency responses varying in a non-linear fashion. Additionally The numeric approximation I would expect to see diverge from the 
+exact solution because the exact solution would not be linear.
+
+Below is the code that did the calculation.
 \lstinputlisting{./../prob3.c}
 
+
 \newpage
-\section{C and Matlab Code Used}
+\section{Code}
 \lstinputlisting{./../main.c}
+
+\section{Scratch Work}
+\includepdf[pages=-]{../Program-Scratch.pdf}
 
 \end{document}
