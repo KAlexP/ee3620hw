@@ -28,7 +28,7 @@ int main(void){
     printf("%5.0lf", f4[itr]);
   }
   printf("\n\n");
-  leny = conv(f1,len1,f2,len2,y);
+  leny = conv(f1,len1,f1,len1,&y);
   printf("f1 * f1: ");
   for(itr = 0; itr < leny; ++itr){
     printf("%5.0lf",y[itr]);
