@@ -16,37 +16,37 @@ int main(void){
  
   printf("f1: ");
   for(itr = 0; itr < len1; itr++){
-    printf(" %5lf", f1[itr]);
+    printf(" %5.0lf", f1[itr]);
   }
   printf("\nf2: ");
   for(itr = 0; itr < len2; itr++){
-    printf(" %5lf", f2[itr]);
+    printf(" %5.0lf", f2[itr]);
   }
   printf("\nf3: ");
   for(itr = 0; itr < len3; itr++){
-    printf(" %5lf", f3[itr]);
+    printf(" %5.0lf", f3[itr]);
   }
   printf("\nf4: ");
   for(itr = 0; itr < len4; itr++){
-    printf(" %5lf", f4[itr]);
+    printf(" %5.0lf", f4[itr]);
   }
   printf("\n\n");
   leny = conv(f1,len1,f1,len1,&y);
   printf("f1 * f1: ");
   for(itr = 0; itr < leny; ++itr){
-    printf(" %5lf",y[itr]);
+    printf(" %5.0lf",y[itr]);
   }
   free(y);
   printf("\nf1 * f2: ");
   leny = conv(f1,len1,f2,len2, &y);
   for(itr = 0; itr < leny; ++itr){
-    printf(" %5lf",y[itr]);
+    printf(" %5.0lf",y[itr]);
   }
   free(y);
   printf("\nX * Y: ");
   leny = conv(X,3,Y,4, &y);
   for(itr = 0; itr < leny; ++itr){
-    printf(" %5lf",y[itr]);
+    printf(" %5.4lf",y[itr]);
   }
   free(y);
   return 0;
