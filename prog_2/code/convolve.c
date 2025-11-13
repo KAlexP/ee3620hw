@@ -4,7 +4,6 @@
 
 int conv(double *f1, int len1, double *f2, int len2, double **y){
   int leny = len1 + len2 - 1;
-  int k,m;
   int in_b, m_start;
   // Allocate The proper amount of memory for y
   *y = malloc((sizeof(double) * leny));
@@ -15,12 +14,3 @@ int conv(double *f1, int len1, double *f2, int len2, double **y){
   }
   return leny;
 }
-  
-// int conv(double *f1, int len1, double *f2, int len2, double **y){
-//   int leny = len1 + len2 - 1;
-//   int k,m,in_b, m_start;
-//   for(k = 0; k < leny; ++k){
-//
-//   }
-//   return leny;
-// }
