@@ -1,0 +1,90 @@
+\documentclass[10pt]{article}
+% Headers that are used to control style in document
+\usepackage[top=0.75in,bottom=0.5in,left=0.5in,right=0.5in, headsep=0.3in]{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{authblk}
+%	Headers for various technical writing aspects. EX: equations, units
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+
+\definecolor{functions}{HTML}{630090}
+\definecolor{comments}{RGB}{80,150,45}
+\definecolor{type-defs}{RGB}{40,129,214}
+ % Setup the lstlisting for assembly for ARM
+
+
+  \lstdefinelanguage{ARM}{
+    morekeywords=[1]{
+			MOV,ADD,SUB, MUL,DIV, AND,ORR,EOR,BIC,LDR,STR,PUSH,POP,BL,BX,B,BEQ,BNE,BGT,BLT,CMP,CMN,TST,TEQ,ADR,SWI
+    },
+    morekeywords=[2]{
+			INCLUDE, AREA, CODE, READONLY, EXPORT, ALIGN, ENTRY, PROC, ENDP, END
+    },
+    sensitive=true,
+    morecomment=[l]{;},
+    morestring=[b]"
+  }
+
+\lstset{
+  % language=ARM,
+  language=C,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=[1]{\color{type-defs}\textbf},
+  keywordstyle=[2]\color{red}\textbf,
+  morekeywords=[3]{main,setup,ADC_Init,USART_Init,USART_Read,USART_Write,SysTick_Initialize,SysTick_Handler,Delay,delay_ms},
+  morekeywords=[4]{int,uint8_t,uint32_t,double,float,USART_TypeDef,char,unsigned,volatile},
+  keywordstyle=[3]\color{functions},
+  keywordstyle=[4]\color{type-defs},
+  commentstyle=\color{comments},
+  stringstyle=\color{blue},
+  numbers = left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  tabsize=4,
+  showstringspaces=false
+}
+% Header setup
+	\pagestyle{empty}
+
+% Define the title and authors
+	\title{\vspace{-2em}\bf Program 2 Report}
+	\author{Kelson Petersen}
+	\date{\today}
+
+% Document Start
+\begin{document}
+\maketitle
+
+\section*{\bf Objectives}
+To review programming in C or C++. To give practice in converting mathematical descriptions of ideaas into computer 
+implementations. To provide practice and experience in convolution. To provide practice in finding the complete solution of
+differential equations.
+\section*{\bf Discrete Convolution in C}
+To perform convolution in a digital computer it is easier to make a continuous signal discrete. We do this by `sampling' 
+the continuous signal at specific points in time. We then are able to convolve that signal with other discrete signals.
+The method to convolve two discrete functions is create an array that holds $n\cdot m-1$ elements where $n$ is the length
+of signal one, and $m$ is the length of signal two. The convolution is the sum of all diagonal elements in a table of 
+products as seen in the scratch work section of the appendix.
+
+To write this code it is fairly simple and only requires the following code.
+\lstinputlisting{./../code/convolve.c}
+The double nested loop in lines 14\textendash18 iterate through each element of the two arrays passed to the function.
+While iterating throught the arrays the index $i+j$ is how we get the diagonal elements to sum together in the correct 
+places.
+\section*{\bf Conclusion}
+Words
+\newpage
+\section*{Appendix}
+Words
+\subsection*{Code}
+Words
+\subsection*{Scratch Work}
+\includepdf[pages={1-2}]{./apdx/scratch_prog_2.pdf}
+\end{document}
