@@ -1,0 +1,28 @@
+f1 = [0,1,2,3,2,1];
+f2 = [-2,-2,-2,-2,-2,-2,-2];
+f3 = [1,-1,1,-1];
+f4 = [0,0,0,-3,-3];
+% Example discrete data
+n  = 0:10;       % discrete time index
+f1 = sin(0.2*pi*n);
+f2 = cos(0.2*pi*n);
+f3 = n.^2;
+f4 = rand(size(n));
+
+figure;
+
+subplot(2,2,1);        % 2-by-2 grid, subplot #1
+stem(n, f1);           % stem = discrete plot
+title('f1');
+
+subplot(2,2,2);        % subplot #2
+stem(n, f2);
+title('f2');
+
+subplot(2,2,3);        % subplot #3
+stem(n, f3);
+title('f3');
+
+subplot(2,2,4);        % subplot #4
+stem(n, f4);
+title('f4');
