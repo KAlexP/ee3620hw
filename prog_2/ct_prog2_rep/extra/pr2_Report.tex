@@ -1,0 +1,71 @@
+\documentclass[10pt]{article}
+% Headers that are used to control style in document
+\usepackage[top=0.75in,bottom=0.5in,left=0.5in,right=0.5in, headsep=0.3in]{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{authblk}
+%	Headers for various technical writing aspects. EX: equations, units
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+
+\definecolor{functions}{HTML}{0F2439}
+\definecolor{comments}{HTML}{323232}
+\definecolor{type-defs}{HTML}{006242}
+
+
+
+  \lstdefinelanguage{ARM}{
+    morekeywords=[1]{
+			MOV,ADD,SUB, MUL,DIV, AND,ORR,EOR,BIC,LDR,STR,PUSH,POP,BL,BX,B,BEQ,BNE,BGT,BLT,CMP,CMN,TST,TEQ,ADR,SWI
+    },
+    morekeywords=[2]{
+			INCLUDE, AREA, CODE, READONLY, EXPORT, ALIGN, ENTRY, PROC, ENDP, END
+    },
+    sensitive=true,
+    morecomment=[l]{;},
+    morestring=[b]"
+  }
+
+\lstset{
+  % language=ARM,
+  language=C,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=[1]{\color{type-defs}\textbf},
+  keywordstyle=[2]\color{red}\textbf,
+  morekeywords=[3]{main,setup,ADC_Init,USART_Init,USART_Read,USART_Write,SysTick_Initialize,SysTick_Handler,Delay,delay_ms},
+  morekeywords=[4]{int,uint8_t,uint32_t,double,float,USART_TypeDef,char,unsigned,volatile},
+  keywordstyle=[3]\color{functions},
+  keywordstyle=[4]\color{type-defs},
+  commentstyle=\color{comments},
+  stringstyle=\color{blue},
+  numbers = left,
+  numberstyle=\tiny\color{gray},
+  frame=single,
+  tabsize=4,
+  showstringspaces=false
+}
+% Header setup
+	\pagestyle{empty}
+
+% Define the title and authors
+	\title{\vspace{-2em}\bf Program 2 Report}
+	\author{Kelson Petersen}
+	\date{\today}
+
+% Document Start
+\begin{document}
+\section*{Code}
+\lstinputlisting{./../../code/main.c}
+\lstinputlisting{./../../code/convolve.h}
+\lstinputlisting{./../../code/convolve.c}
+\lstinputlisting{./../../code/matrix.h}
+\lstinputlisting{./../../code/matrix.c}
+\lstinputlisting{./../../code/sine.c}
+\lstinputlisting{./../../code/h_t.c}
+\end{document}
