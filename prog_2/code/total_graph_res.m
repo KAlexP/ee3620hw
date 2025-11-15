@@ -14,7 +14,7 @@ y_analytic = (-0.07 .* exp(-2.6038 .* t_fine) + 1.94 .* exp(-1.198 .* t_fine) .*
 
 y_analytic = real(y_analytic);
 
-plot(t_fine, y_analytic, 'r-','Linewidth',2,'DisplayName', 'Analytic Result')
+plot(t_fine, y_analytic, 'r:','Linewidth',2,'DisplayName', 'Analytic Result')
 
 legend('show');
 xlabel('t');
