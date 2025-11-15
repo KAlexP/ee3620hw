@@ -7,7 +7,6 @@ void Ft_conv_Ht(void);
 int  program_1_code(void);
 
 int main(void) {
-  program_1_code();
   int          itr, leny;
   double*      y;
   const int    len1 = 6, len2 = 7, len3 = 4, len4 = 5;
@@ -52,6 +51,9 @@ int main(void) {
   leny = conv(f1, len1, f4, len4, &y);
   for (itr = 0; itr < leny; ++itr) { printf(" %5.0lf", y[itr]); }
   free(y);
+  // Get results for the zero input 
+  program_1_code();
+  // Perform the convolution and summing of zero_state and zero_input
   Ft_conv_Ht();
   return 0;
 }
