@@ -53,7 +53,7 @@ int main(void) {
   free(y);
   // Get results for the zero input 
   program_1_code();
-  // Perform the convolution and summing of zero_state and zero_input
+  // Perform the convolution and summing of h_t and zero_input
   Ft_conv_Ht();
   return 0;
 }
@@ -95,9 +95,9 @@ void Ft_conv_Ht(void) {
     printf("Error: sine.txt doesn't exist\n");
     exit(1);
   }
-  FILE* HT_FILE = fopen("zero_state.txt", "r");
-  if (FT_FILE == NULL) {
-    printf("Error: zero_state.txt doesn't exist\n");
+  FILE* HT_FILE = fopen("h_t.txt", "r");
+  if (HT_FILE == NULL) {
+    printf("Error: h_t.txt doesn't exist\n");
     exit(1);
   }
   FILE* ZI_FILE = fopen("zero_input.txt", "r");
