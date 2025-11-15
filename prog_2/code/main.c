@@ -67,7 +67,7 @@ int program_1_code(void) {
   double I[][3]  = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
   double A[][3]  = {{0, 1, 0}, {0, 0, 1}, {-15, -12, -5}};
   double x_t[3]  = {-2, 3, 4};
-  double delta_t = 0.0005f;
+  double delta_t = 0.001f;
   double time;
   // avoid unnecessary function calls in loop
   mat_scale(delta_t, A, A);
@@ -111,34 +111,19 @@ void Ft_conv_Ht(void) {
     exit(1);
   }
   for (int i = 0; i < 10000; i++) {
-    if (!fgets(buff, sizeof(buff), FT_FILE)) {
-      printf("Reached end of file at line %d\n", i);
-      break;
-    }
+    if (!fgets(buff, sizeof(buff), FT_FILE)) { printf("Reached end of file at line %d\n", i); break; }
     char*  endptr;
     double value = strtod(buff, &endptr);
-    if (endptr == buff) {
-      printf("Invalid number on line %d: %s\n", i, buff);
-      continue;
-    }
+    if (endptr == buff) { printf("Invalid number on line %d: %s\n", i, buff); continue; }
     ft[i] = value;
   }
   fclose(FT_FILE);
   for (int i = 0; i < 10000; i++) {
-    if (!fgets(buff, sizeof(buff), HT_FILE)) {
-      // Stop if file ends early
-      printf("Reached end of file at line %d\n", i);
-      break;
-    }
+    if (!fgets(buff, sizeof(buff), HT_FILE)) { printf("Reached end of file at line %d\n", i); break; }
     char*  endptr;
     double value = strtod(buff, &endptr);
-    if (endptr == buff) {
-      // No valid number on this line
-      printf("Invalid number on line %d: %s\n", i, buff);
-      continue;
-    }
+    if (endptr == buff) { printf("Invalid number on line %d: %s\n", i, buff); continue; }
     ht[i] = value;
-    // printf("%lf\n", ht[i]);
   }
   fclose(HT_FILE);
   // Perform the convolution
@@ -148,18 +133,10 @@ void Ft_conv_Ht(void) {
     y[itr] *= 0.001;
   }
   for (int i = 0; i < 10000; i++) {
-    if (!fgets(buff, sizeof(buff), ZI_FILE)) {
-      // Stop if file ends early
-      printf("Reached end of file at line %d\n", i);
-      break;
-    }
+    if (!fgets(buff, sizeof(buff), ZI_FILE)) {printf("Reached end of file at line %d\n", i); break; }
     char*  endptr;
     double value = strtod(buff, &endptr);
-    if (endptr == buff) {
-      // No valid number on this line
-      printf("Invalid number on line %d: %s\n", i, buff);
-      continue;
-    }
+    if (endptr == buff) { printf("Invalid number on line %d: %s\n", i, buff); continue; }
     zi[i] = value;
   }
   fclose(ZI_FILE);
