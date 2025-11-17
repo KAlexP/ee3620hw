@@ -1,0 +1,437 @@
+\documentclass[letterpaper]{report}
+
+\usepackage{tikz, background, titling, setspace}
+\usepackage{tabu}
+\usetikzlibrary{calc}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{layout}
+\usepackage[left=1in,right=0.5in,top=0.625in]{geometry}
+\usepackage{pgf}
+\usepackage{pgfpages}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,pgfplots}
+\usepackage[abspage,user,lastpage]{zref}
+\usepackage{lastpage}
+\usepackage{marginnote}
+\usepackage{eso-pic}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{tikz-timing}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[absolute]{textpos}
+\usepackage{amssymb}  % provides Rbb, etc.
+\usepackage{latexsym}  % provides \Box
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage{steinmetz}
+
+
+% Defined Colors to be used throughout
+% Change the color by uncommenting the color you want and commenting out the one you don't
+  % Page Background color
+    % #FFEC8B (LightGoldenrod1)
+        % \definecolor{PageColorz}{RGB}{255,236,139}
+    % #FFFE4  (darker YELLOW) -Defualt-
+      %\definecolor{PageColorz}{RGB}{255,255,200}
+    % #FFFFDC (Light Yellow1) -Recomendable-
+      % \definecolor{PageColorz}{RGB}{255,255,220}
+    % #FFFFED (Light Yellow)
+      \definecolor{PageColorz}{RGB}{255,255,237}
+    % #fffff5 (Lighter Yellow)
+      % \definecolor{PageColorz}{RGB}{255,255,245}
+    % #ffffff (White)
+      % \definecolor{PageColorz}{RGB}{255,255,255}
+    % #BFEFFF (LightBlue1)
+      % \definecolor{PageColorz}{RGB}{191,239,255}
+    % #E0FFFF (LightCyan)
+      % \definecolor{PageColorz}{RGB}{224,255,255}
+    % #104E8B (DodgerBlue4)
+	    % \definecolor{PageColorz}{RGB}{16,78,139}
+    % #097969 (CadmiumGreen)
+      % \definecolor{PageColorz}{HTML}{097969}
+    % #AFE1AF (CeladonGreen) 
+      % \definecolor{PageColorz}{HTML}{AFE1AF}
+
+    % MEME colorz (PINK) #FFb6C1
+      % \defineColor{PageColorz}{HTML}{FFB6C1}
+	\pagecolor{PageColorz}
+
+  % Line Colors 
+    % #b94249 (Green) -Default-
+      \definecolor{MyLines}{RGB}{73,185,66}
+    % #6495ed (Blue)
+      % \definecolor{MyLines}{RGB}{97,145,179}
+    % #104E8B (DodgerBlue4)
+      % \definecolor{MyLines}{RGB}{16,78,139}
+    % #E0FFFF (LightCyan)
+      % \definecolor{MyLines}{RGB}{224,255,255}
+    % #000000 (Black)
+      % \definecolor{MyLines}{RGB}{0,0,0}
+    % #FFFFFF (White)
+      % \definecolor{MyLines}{RGB}{255,255,255}
+
+  % Default Text Color
+    % #b94249 (Green)
+      % \definecolor{MyColor}{RGB}{73,185,66}
+    % #6495ed (Blue)
+      % \definecolor{MyColor}{RGB}{97,145,179}
+    % #000000 (Black) -Default-
+      \definecolor{MyColor}{RGB}{0,0,0}
+  
+    \color{MyColor}
+
+  % GridColor
+    % #DFFFFF (UltraLightGrey) -Defualt-
+      \definecolor{GridColor}{HTML}{DFFFFF}
+    % #D3D3D3 (DarkishGrey)
+      % \definecolor{GridColor}{HTML}{D3D3D3}
+
+  % Extra Defined Color
+  \definecolor{Extra}{RGB}{16,78,160}
+  % \definecolor{Extra}{RGB}{205,245,255}
+
+% A compatability option for pgfplots
+\pgfplotsset{compat=1.18}
+
+% Document Properties
+\newcommand{\course}{ECE 3620}
+\newcommand{\studentName}{Petersen, Kelson}
+\newcommand{\aNumber}{A02346768}
+\newcommand{\assnNumber}{11}
+\newcommand{\w}{\omega}
+\newcommand{\Ohm}{\Omega}
+\newcommand{\D}{^\circ}
+% Draw the Background lines
+\backgroundsetup{%
+ position=current page.center,
+ angle=0,
+ scale=1,
+ contents={%
+  \begin{tikzpicture}%
+    [
+      normal lines/.style={MyLines, thick},
+      grid lines/.style={GridColor, very thin},
+      every node/.append style={black, align=center, opacity=1}
+    ]
+    \foreach \y in {0.5, 1,...,27} {  \draw[grid lines] (2.5cm,\y cm) -- (20.5cm,\y cm); }
+    \foreach \x in {2.5, 3,...,20.5}          {  \draw[grid lines] (\x cm,0cm) -- (\x cm,27 cm); }
+	% Draw the background lines of the document
+	\draw[normal lines] (3.166in,27cm) -- (3.166in,11in);
+	\draw[normal lines] (5.333in,27cm) -- (5.333in,11in);
+    \draw[normal lines] (2.5cm,0) -- (2.5cm,11in);
+    \draw[normal lines] (20.5cm,0) -- (20.5,11in);
+    \draw[normal lines] (0in,27cm) -- (21.5cm,27cm);
+	% Make Nodes for the header to appear
+	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 27.5cm) {\course, Hw \assnNumber};
+    \node (t) [font=\footnotesize, anchor=center] at (5cm, 27.5cm) {November\hspace{2em}, 2025};
+    \node (t) [font=\footnotesize, anchor=center] at (15cm, 27.5cm) {\studentName};
+	\node (t) [font=\footnotesize, anchor=center] at (21cm, 27.5cm) {/};
+  \end{tikzpicture}%
+}}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+
+%isolated term
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - node
+%#3 - filling color
+\newcommand{\implicantsol}[3][0]{
+    \draw[rounded corners=3pt, fill=#3, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#2.south east)+(-45:#1)$);
+    }
+
+
+%internal group
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicant}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(#2.north west)+(135:#1)$) rectangle ($(#3.south east)+(-45:#1)$);
+    }
+
+%group lateral borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantcostats}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.east |- #2.north)+(90:#1)$)-| ($(#2.east)+(0:#1)$) |- ($(rf.east |- #3.south)+(-90:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.west |- #2.north)+(90:#1)$) -| ($(#3.west)+(180:#1)$) |- ($(cf.west |- #3.south)+(-90:#1)$);
+}
+
+%group top-bottom borders
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - top left node
+%#3 - bottom right node
+%#4 - filling color
+\newcommand{\implicantdaltbaix}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(cf.south -| #2.west)+(180:#1)$) |- ($(#2.south)+(-90:#1)$) -| ($(cf.south -| #3.east)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=0.3] ($(rf.north -| #2.west)+(180:#1)$) |- ($(#3.north)+(90:#1)$) -| ($(rf.north -| #3.east)+(0:#1)$);
+}
+
+%group corners
+%#1 - Optional. Space between node and grouping line. Default=0
+%#2 - filling color
+\newcommand{\implicantcantons}[2][0]{
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -| ($(0.east |- cf.south)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$);
+    \draw[rounded corners=3pt, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$);
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -|  ($(0.east |- cf.south)+(0:#1)$) [sharp corners] ($(rf.east |- 0.south)+(-90:#1)$) |-  ($(0.east |- cf.south)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$) [sharp corners] ($(rf.east |- 8.north)+(90:#1)$) |- ($(8.east |- rf.north)+(0:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$) [sharp corners]($(cf.west |- 2.south)+(-90:#1)$) |- ($(2.west |- cf.south)+(180:#1)$) ;
+    \fill[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$) [sharp corners] ($(cf.west |- 10.north)+(90:#1)$) |- ($(10.west |- rf.north)+(180:#1)$) ;
+}
+
+%Empty Karnaugh map 4x4
+\newenvironment{Karnaugh}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,4);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {cd} node [pos=0.7,below left,anchor=north east] {ab} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=8.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                       \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 00             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 01             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(r11)| 11             \& |(12)| \phantom{0} \& |(13)| \phantom{0} \& |(15)| \phantom{0} \& |(14)| \phantom{0} \&                     \\
+|(r10)| 10             \& |(8)|  \phantom{0} \& |(9)|  \phantom{0} \& |(11)| \phantom{0} \& |(10)| \phantom{0} \&                     \\
+|(rf) | \phantom{00}   \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x4
+\newenvironment{Karnaughvuit}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {bc} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=4.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                      \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 0             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 1             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(rf) | \phantom{00}  \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x2
+\newenvironment{Karnaughquatre}%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (2,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {b} node [pos=0.7,below left,anchor=north east] {a} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=2.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+          \& |(c00)| 0          \& |(c01)| 1  \\
+|(r00)| 0 \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \\
+|(r01)| 1 \& |(2)|  \phantom{0} \& |(3)|  \phantom{0} \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Defines 8 or 16 values (0,1,X)
+\newcommand{\contingut}[1]{%
+\foreach \x [count=\xi from 0]  in {#1}
+     \path (\xi) node {\x};
+}
+
+%Places 1 in listed positions
+\newcommand{\minterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {1};
+}
+
+%Places 0 in listed positions
+\newcommand{\maxterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {0};
+}
+
+%Places X in listed positions
+\newcommand{\indeterminats}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {X};
+}
+
+% Pagestyle for no header 
+\pagestyle{empty}
+
+% Spacing Controls
+\setlength{\parindent}{0pt}
+
+% New environments
+
+\newcounter{ProblemNumber}[section]
+\newenvironment{problem}[1][]{
+    \noindent
+	\textbf{Problem #1 \refstepcounter{ProblemNumber}:} \\ 
+    \setlength{\leftskip}{0.125in}
+    \setlength{\rightskip}{0.125in}
+}
+{
+	\newline 
+	\textcolor{MyLines}{\hrule}
+    \vspace{6pt}
+    \par
+}
+%\newcounter{SolutionNumber}[section]
+\newenvironment{answer}[1][]{
+  \setlength{\leftskip}{0.125in}
+  \setlength{\rightskip}{0.125in}
+  %\textbf{Solution #1 \refstepcounter{ProblemNumber}:} \\ 
+}
+{
+  \newline
+  \textcolor{MyLines}{\hrule}
+  \vspace{2pt}
+  \textcolor{MyLines}{\hrule}
+  \vspace{6pt}
+}
+
+
+\begin{document}
+\begin{problem}[{5.51}]
+	\\ \textbf{Given:} The definition of Fourier transform.
+  \begin{align}
+    {\bf X}(\omega) = {\bf F}\big[ x(t)\big] = \int^\infty_{-\infty} x(t) e^{-j\omega t}dt
+  \end{align}
+	\\\textbf{Find:} Using the definition of Fourier transform, prove that 
+  \begin{align}
+    {\bf F}\| t(f(t)\| = j\frac{d}{d\omega} {\bf F}(\omega)    
+  \end{align}
+\end{problem}
+\newpage
+\begin{problem}[{5.52}]
+  \\ \textbf{Given:} Let the Fourier transform of $f(t)$ be
+  \begin{align}
+    {\bf F}(\omega) = \frac{1}{A+j\omega}e^{-j\omega} + B
+  \end{align}
+  \\\textbf{Find:} Determine the transforms of the following signals (set $A = 2$ and $B = 1$)
+  \begin{itemize}
+    \item[a.] $f(\frac{5}{8}t)$
+    \item[b.] $f(t)\cos(At)$
+  \end{itemize}~
+\end{problem}
+\newpage
+\begin{problem}[{5.53}]
+  \\ \textbf{Given:} Let the Fourier transform of $f(t)$ be 
+  \begin{align}
+    {\bf F}(\omega) = \frac{A}{(B + j\omega)}
+  \end{align}
+	\\\textbf{Find:} 
+  \begin{itemize}
+    \item[a.] $f(3t-2)$
+    \item[b.] $tf(t)$
+  \end{itemize}~
+\end{problem}
+\newpage
+\begin{problem}[{5.55}]
+	\\ \textbf{Given:}The waveform
+  \begin{align}
+    \frac{\sin(20\pi t)}{\pi t}\frac{\sin(10\pi t)}{\pi t}
+  \end{align}
+	\\\textbf{Find:} Show that the spectrum of the above is zero for $\|\omega\| > 30\pi$.
+\end{problem}
+\newpage
+\begin{problem}[{5.68}]
+	\\ \textbf{Given:} The circuit in Figure P5.23 and the waveform in Figure P5.39\\
+  \begin{figure}[t]
+    \center
+    \includegraphics[scale=0.125]{Fig.P5.23.png}
+    \caption{Fig. P5.23}
+  \end{figure}
+  \begin{figure}[t]
+    \center
+    \includegraphics[scale=0.125]{Fig.P5.39.png}
+    \caption{Fig. P5.39}
+  \end{figure}
+	\\\textbf{Find:} 
+  \begin{itemize}
+    \item[a.] Derive the expression for $v_{\text{out}}(t)$ using Fourier analysis.
+    \item[b.] Plot $v_{\text{out}}(t)$ using $A=5~V$, $T= 3~ms$, $R_1=500~\Omega$, $R_2 = 2~k\Omega$, and 
+      $C=0.33~\mu F$.
+    \item[c.] Repeat part (b) with $C=0.33~mF$ and comment on the results
+  \end{itemize}~
+\end{problem}
+\newpage
+\begin{problem}[{6.28}]
+	\\ \textbf{Given:} The figure P6.28\\
+  \begin{figure}[t]
+    \center
+    \includegraphics[scale=0.125]{Fig.P6.28.png}
+    \caption{Figure P6.28}
+  \end{figure}
+	\\\textbf{Find:} Derive the impulse response of a system characterized by the frequency response shown in Fig. P6.28. 
+  Express your answer in terms of three sinc functions.
+\end{problem}
+\newpage
+\begin{problem}[{6.57}]
+	\\ \textbf{Given:} In World War II, voice radio scramblers used modulation schemes to distort a signal so that 
+  enemy forces could not understand it unless it was demodulated properly. In one scheme, a signal $x(t)$, 
+  bandlimited to $4~kHz$, is modulated to generate an output signal\\
+  \begin{align}
+    y(t) = \left[2x(t)\cos(8000\pi t)\right]*\left[\frac{\sin(8000\pi t)}{\pi t}\right] 
+  \end{align}
+	\\\textbf{Find:}
+  \begin{itemize}
+    \item[a.] Plot the range of the spectrum y(t).
+    \item[b.] Describe why the scrambled singal's spectrum is ``distorted.''
+    \item[c.] Show that $x(t)$ can be recovered from $y(t)$ using 
+      \begin{align}
+        x(t) = \left[2y(t)\cos(8000\pi t)\right]\left[\frac{\sin(8000\pi t)}{\pi t}\right]
+      \end{align}
+  \end{itemize}~
+\end{problem}
+\newpage
+\begin{problem}[{6.59}]
+  \\ \textbf{Given:} FM stereo signals are formed using the system shown in Fig. P6.59, where $L(t)$ is the left 
+  speaker signal and $R(t)$ is the right speaker signal. Asssume both singls are bandlimitied to $15~kHz$. Also 
+  the signal $C(t)$ is a $38~kHz$ sinusoidal carrier given by $C(t) = 2\cos(76000\pi t)$.\\
+  \begin{figure}[t]
+    \center
+    \includegraphics[scale=0.125]{Fig.P6.59.png}
+    \caption{Figure P6.59}
+  \end{figure}
+  \\\textbf{Find:} Sketch the spectrum of $z(t)$.
+\end{problem}
+
+\end{document}
