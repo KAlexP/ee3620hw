@@ -4,7 +4,7 @@ y = data(:,2);
 
 
 figure;
-plot(x,y,'LineWidth',1,'DisplayName','Numeric Zero State')
+plot(x,y,'LineWidth',1,'DisplayName','Numeric Result')
 hold on;
 grid on;
 
