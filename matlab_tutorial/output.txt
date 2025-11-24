@@ -1,0 +1,415 @@
+Exercise 1
+help colon
+
+Exercise 2
+M = rand(6,6)
+M =
+
+    0.8147    0.2785    0.9572    0.7922    0.6787    0.7060
+    0.9058    0.5469    0.4854    0.9595    0.7577    0.0318
+    0.1270    0.9575    0.8003    0.6557    0.7431    0.2769
+    0.9134    0.9649    0.1419    0.0357    0.3922    0.0462
+    0.6324    0.1576    0.4218    0.8491    0.6555    0.0971
+    0.0975    0.9706    0.9157    0.9340    0.1712    0.8235
+M(1:2:end,1)
+
+ans =
+
+    0.8147
+    0.1270
+    0.6324
+
+M(2:2:end,1)
+
+ans =
+
+    0.9058
+    0.9134
+    0.0975
+
+M(1:2:end,:)
+
+ans =
+
+    0.8147    0.2785    0.9572    0.7922    0.6787    0.7060
+    0.1270    0.9575    0.8003    0.6557    0.7431    0.2769
+    0.6324    0.1576    0.4218    0.8491    0.6555    0.0971
+
+M(1:2:end,1:2:end)
+
+ans =
+
+    0.8147    0.9572    0.6787
+    0.1270    0.8003    0.7431
+    0.6324    0.4218    0.6555
+
+M(1:2:end,2:2:end)
+ans =
+
+    0.2785    0.7922    0.7060
+    0.9575    0.6557    0.2769
+    0.1576    0.8491    0.0971
+
+Exercise 3
+z = zeros(3,4)
+
+z =
+
+     0     0     0     0
+     0     0     0     0
+     0     0     0     0
+
+help zeros
+f = 7 * ones(5,6)
+
+f =
+
+     7     7     7     7     7     7
+     7     7     7     7     7     7
+     7     7     7     7     7     7
+     7     7     7     7     7     7
+     7     7     7     7     7     7
+
+Exercise 4
+help ones
+r1 = randn(2,3)
+
+r1 =
+
+    0.6715    0.7172    0.4889
+   -1.2075    1.6302    1.0347
+
+Exercise 5
+help rand
+
+Exercise 6
+help randn
+
+clear i j
+i = sqrt(-1);
+pi
+
+ans =
+
+    3.1416
+
+Exercise 7
+help format
+format long
+pi
+
+ans =
+
+   3.141592653589793
+
+pi = 3
+
+pi =
+
+     3
+
+pi
+
+pi =
+
+     3
+
+clear pi
+pi
+
+ans =
+
+   3.141592653589793
+
+x = 3;
+y = 7;
+z1 = x*y;
+z2 = x / y;
+z3 = x + y;
+z4 = mod(7,3);
+r = 3;
+vol = 4/3*pi*r^3;
+v1 = [10 11 12 13];
+v2 = [45 23 12 10];
+vsum = v1 + v2;
+vsum2 = 5 + v2;
+m = [ 1 2 3; 6 5 2; 7 5 3];
+v3 = [20; 19; 18];
+mv = m * v3;
+
+vprod = v1 .* v2
+
+vprod =
+
+   450   253   144   130
+
+j1 = 4;
+e = 1/3;
+j1sqrt = j1^e;
+j1 = 1:5;
+j1
+
+j1 =
+
+     1     2     3     4     5
+
+j2 = j1 .^ 2
+
+j2 =
+
+     1     4     9    16    25
+
+j3 = 1:5;
+j4 = (3/2).^j
+
+j4 =
+
+  0.918919036439500 + 0.394446199714361i
+
+x = 2;
+y = sin(x);
+xv = [2:0.1:3];
+yv = sin(xv);
+yv
+
+yv =
+
+  Columns 1 through 5
+
+   0.909297426825682   0.863209366648874   0.808496403819590   0.745705212176720   0.675463180551151
+
+  Columns 6 through 10
+
+   0.598472144103956   0.515501371821464   0.427379880233830   0.334988150155905   0.239249329213982
+
+  Column 11
+
+   0.141120008059867
+
+zv = exp(xv)
+
+zv =
+
+  Columns 1 through 5
+
+   7.389056098930650   8.166169912567650   9.025013499434122   9.974182454814718  11.023176380641601
+
+  Columns 6 through 10
+
+  12.182493960703473  13.463738035001692  14.879731724872837  16.444646771097048  18.174145369443060
+
+  Column 11
+
+  20.085536923187668
+
+lv = log(xv)
+
+lv =
+
+  Columns 1 through 5
+
+   0.693147180559945   0.741937344729377   0.788457360364270   0.832909122935104   0.875468737353900
+
+  Columns 6 through 10
+
+   0.916290731874155   0.955511445027436   0.993251773010283   1.029619417181158   1.064710736992428
+
+  Column 11
+
+   1.098612288668110
+
+Exercise 8
+help ops
+
+a = [1 2 3];
+b = [0.5 0.5 0.5];
+c = a ./ b
+
+c =
+
+     2     4     6
+Exercise 9
+m = [1 2 3; 6 5 2; 7 5 3];
+help eig
+m_eig = eig(m)
+
+m_eig =
+  10.710426283532639
+  -2.408272990792371
+   0.697846707259733
+
+Exercise 10
+help det
+help inv
+
+det(m)
+ans =   -18
+
+m_inv = inv(m)
+
+m_inv =
+  -0.277777777777778  -0.500000000000000   0.611111111111111
+   0.222222222222222   1.000000000000000  -0.888888888888889
+   0.277777777777778  -0.500000000000000   0.388888888888889
+
+Exercise 11
+b = [4;2;1];
+x = m \ b
+x =
+  -1.500000000000000
+   2.000000000000000
+   0.500000000000000
+help slash
+
+Exercise 12
+e = exp(1)
+
+e =
+
+   2.718281828459045
+
+(-sqrt(16)-4)/(2*e^4+1)
+
+ans =
+  -0.072597718754510
+
+Exercise 13
+k = (1:20);
+k = k.^2;
+sum(k)
+ans = 2870
+help cumsum
+help sum
+
+Exercise 14
+help plot
+j = (1:51);
+x = sin(2*pi*j/50);
+y = cos(6*pi*j/50);
+plot(x,y)
+plot(j,x)
+x = 0:0.1:pi;
+plot(x,sin(x))
+x1 = -2:.01:2;
+y = x1.^2;
+x2 = -3:.01:3;
+z = x2.^3;
+plot(x1,y,x2,z)
+plot(x1,y,'r:',x2,z,'c--')
+
+Exercise 15
+help hold
+clf;
+plot(x1,y,'r:');
+hold on;
+plot(x2,z,'c--');
+
+Exercise 16
+help subplot
+clf;
+subplot(2,1,1);
+plot(x1,y,'r:');
+subplot(2,1,2);
+plot(x2,z,'c--');
+help figure
+
+Exercise 17
+help xlabel
+xlabel('x')
+
+Exercise 18
+help ylabel
+ylabel('y')
+
+Exercise 19
+help title
+title('x y sin thingy')
+
+Exercise 20
+help stem
+stem(c)
+
+Exercise 21
+help semilogy
+semilogy(zv)
+
+Exercise 22
+help semilogx
+semilogx(x)
+
+Exercise 23
+help loglog
+loglog(x1,y)
+
+Exercise 24
+help text
+text(1,2,"words")
+
+Exercise 25
+help print
+print('plot.png','-dpng')
+print('plot.png','-dpng')
+print('plot.png','-dpng')
+
+Exercise 26
+help ezplot
+ezplot('sin(x)')
+ezplot('sin(x)')
+
+Exercise 27
+help help
+
+Exercise 28
+lookfor binomial
+help which
+doc
+
+Exercise 29
+edit myfile.m
+myfile
+Done!
+
+Exercise 30
+edit fact.m
+fact(2)
+ans = 2
+fact(7)
+ans = 5040
+fact(4)
+ans = 24
+fact(5) 
+ans = 120
+fact(10)
+ans = 3628800
+
+help if
+fact(4)
+f = 1
+f = 2
+f = 6
+f = 24
+ans = 24
+fact(4)
+ans = 24
+
+Exercise 31
+edit fact2.m
+help for
+fact2(4)
+ans = 24
+fact2(5)
+ans = 120
+fact(10)
+ans = 3628800
+fact2(10)
+ans = 3628800
+
+Exercise 32 
+(note the name is changed from the assignment because dec2bin is already defined in matlab)
+edit dec2bin.m <-- this is a read only file
+bina = dec2bin(37) <-- this is the function and it's result
+bina = '100101'
+help while
+help for
+help rem
+help floor
