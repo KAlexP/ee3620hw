@@ -1,0 +1,54 @@
+\documentclass[10pt]{article}
+% Headers that are used to control style in document
+\usepackage[top=0.75in,bottom=0.5in,left=0.5in,right=0.5in, headsep=0.3in]{geometry}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{authblk}
+%	Headers for various technical writing aspects. EX: equations, units
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+
+\definecolor{functions}{HTML}{630090}
+\definecolor{comments}{RGB}{80,150,45}
+\definecolor{type-defs}{RGB}{40,129,214}
+ % Setup the lstlisting for assembly for ARM
+
+
+  \lstdefinelanguage{ARM}{
+    morekeywords=[1]{
+			MOV,ADD,SUB, MUL,DIV, AND,ORR,EOR,BIC,LDR,STR,PUSH,POP,BL,BX,B,BEQ,BNE,BGT,BLT,CMP,CMN,TST,TEQ,ADR,SWI
+    },
+    morekeywords=[2]{
+			INCLUDE, AREA, CODE, READONLY, EXPORT, ALIGN, ENTRY, PROC, ENDP, END
+    },
+    sensitive=true,
+    morecomment=[l]{;},
+    morestring=[b]"
+  }
+
+\lstset{
+  % language=ARM,
+  basicstyle=\ttfamily\footnotesize,
+  frame=single,
+  tabsize=2,
+  showstringspaces=false
+}
+% Header setup
+	\pagestyle{empty}
+
+% Define the title and authors
+	\title{\vspace{-2em}\bf Matlab Tutorial}
+	\author{Kelson Petersen}
+	\date{\today}
+
+% Document Start
+\begin{document}
+\maketitle
+\section*{Diary Output File}
+\lstinputlisting{./../output.txt}
+\end{document}

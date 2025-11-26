@@ -437,9 +437,6 @@ y = sin(2*pi*400*t);
 sound(y,Fs);
 audiowrite('mysin400.wav',y,Fs);
 clear y
-y = audiorad('mysin400.wav');
-{Unrecognized function or variable 'audiorad'.
-} 
 y = audioread('mysin400.wav');
 sound(y,Fs);
 v = [1,0,-10,2];
