@@ -413,3 +413,17 @@ help while
 help for
 help rem
 help floor
+edit decToBits.m
+decToBits(37)
+ans = 1     0     0     1     0     1
+
+Exercise 33
+help fprintf
+help fopen
+help fread
+help fwrite
+help fclose
+
+Exercise 34
+help save
+help load
