@@ -6,7 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
 \usepackage{layout}
-\usepackage[left=1in,right=0.5in,top=0.625in]{geometry}
+\usepackage[left=1in,right=1.05cm,top=0.5in]{geometry}
 \usepackage{pgf}
 \usepackage{pgfpages}
 \usepackage{pgfplots}
@@ -46,11 +46,11 @@
     % #FFFE4  (darker YELLOW) -Defualt-
       %\definecolor{PageColorz}{RGB}{255,255,200}
     % #FFFFDC (Light Yellow1) -Recomendable-
-      \definecolor{PageColorz}{RGB}{255,255,220}
+      % \definecolor{PageColorz}{RGB}{255,255,220}
     % #FFFFED (Light Yellow)
       % \definecolor{PageColorz}{RGB}{255,255,237}
     % #fffff5 (Lighter Yellow)
-      % \definecolor{PageColorz}{RGB}{255,255,245}
+      \definecolor{PageColorz}{RGB}{255,255,245}
     % #ffffff (White)
       % \definecolor{PageColorz}{RGB}{255,255,255}
     % #BFEFFF (LightBlue1)
@@ -94,9 +94,9 @@
 
   % GridColor
     % #DFFFFF (UltraLightGrey) -Defualt-
-      % \definecolor{GridColor}{HTML}{DFFFFF}
+      \definecolor{GridColor}{HTML}{DFFFFF}
     % #D3D3D3 (DarkishGrey)
-      \definecolor{GridColor}{HTML}{D3D3D3}
+      % \definecolor{GridColor}{HTML}{D3D3D3}
 
   % Extra Defined Color
   \definecolor{Extra}{RGB}{16,78,160}
@@ -106,10 +106,10 @@
 \pgfplotsset{compat=1.18}
 
 % Document Properties
-\newcommand{\course}{ 3620}
+\newcommand{\course}{ECE 3620}
 \newcommand{\studentName}{Petersen, Kelson}
 \newcommand{\aNumber}{A02346768}
-\newcommand{\assnNumber}{ 12}
+\newcommand{\assnNumber}{Hw 12}
 \newcommand{\w}{\omega}
 \newcommand{\Ohm}{\Omega}
 \newcommand{\D}{^\circ}
@@ -134,10 +134,10 @@
     \draw[normal lines] (20.5cm,0) -- (20.5,11in);
     \draw[normal lines] (0in,27cm) -- (21.5cm,27cm);
 	% Make Nodes for the header to appear
-	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 27.5cm) {\course, Assignment: \assnNumber};
+	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 27.5cm) {\course, \assnNumber};
     \node (t) [font=\footnotesize, anchor=center] at (5cm, 27.5cm) {\today};
-    \node (t) [font=\footnotesize, anchor=center] at (11cm, 27.5cm) {\studentName};
-	\node (t) [font=\footnotesize, anchor=center] at (21cm, 27.5cm) {\thepage / \pageref{LastPage}};
+    \node (t) [font=\footnotesize, anchor=center] at (15cm, 27.5cm) {\studentName};
+	\node (t) [font=\footnotesize, anchor=center] at (21cm, 27.5cm) {\thepage /\pageref{LastPage}};
   \end{tikzpicture}%
 }}
 \usepackage{tikz}
@@ -329,40 +329,62 @@
 
 
 \begin{document}
-\begin{problem}[{}]
+\begin{problem}[{6.8}]
+	\\ \textbf{Given:}
+  \begin{center}
+    \includegraphics[scale=0.3]{./p6.8.png}
+  \end{center}
+  \textbf{Find:} The magnitude and phase plots for the following voltage transfer functions. (Start with the asymptotic plots learned in class).
+  \begin{itemize}
+    \item[a.] ${\bf H}(\omega) = \frac{j100\omega}{10 + j\omega}$
+    \item[b.] ${\bf H}(\omega) = \frac{0.4{(50+j\omega)}^2}{{(j\omega)}^2}$
+    \item[c.] ${\bf H}(\omega) = \frac{(40+j80\omega)}{(10+j50\omega)}$
+    \item[d.] ${\bf H}(\omega) = \frac{(20+j5\omega)(20+j\omega)}{j\omega}$
+    \item[e.] ${\bf H}(\omega) = \frac{30(10+j\omega)}{(200+j2\omega)(1000+j2\omega)}$
+    \item[f.] ${\bf H}(\omega) = \frac{j100\omega}{(100+j5\omega){(100+j\omega)}^2}$
+    \item[g.] ${\bf H}(\omega) = \frac{(200+j2\omega)}{(50+j5\omega)(1000+j\omega)}$
+  \end{itemize}~
+\end{problem}
+\begin{answer}
+  \begin{itemize}
+    \item[a.] ~
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+    \item[b.] ~ 
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+    \item[c.] ~
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+    \item[d.] ~
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+    \item[e.] ~
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+    \item[f.] ~
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+    \item[g.] ~
+      \begin{center}
+        \includegraphics[scale=0.25]{./bode_plot.png}
+      \end{center}
+  \end{itemize}~
+\end{answer}
+\newpage
+\begin{problem}[{6.18}]
 	\\ \textbf{Given:}\\
 	\textbf{Find:}
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
-\begin{problem}[{}]
+\newpage
+\begin{problem}[{6.19}]
 	\\ \textbf{Given:}\\
 	\textbf{Find:}
 \end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
-\begin{problem}[{}]
-	\\ \textbf{Given:}\\
-	\textbf{Find:}
-\end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
-\begin{problem}[{}]
-	\\ \textbf{Given:}\\
-	\textbf{Find:}
-\end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
-\begin{problem}[{}]
-	\\ \textbf{Given:}\\
-	\textbf{Find:}
-\end{problem}
-\begin{answer}
-	Answer Section
-\end{answer}
-
 \end{document}
