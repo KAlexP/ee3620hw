@@ -137,7 +137,7 @@
 	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 27.5cm) {\course, \assnNumber};
     \node (t) [font=\footnotesize, anchor=center] at (5cm, 27.5cm) {\today};
     \node (t) [font=\footnotesize, anchor=center] at (15cm, 27.5cm) {\studentName};
-	\node (t) [font=\footnotesize, anchor=center] at (21cm, 27.5cm) {\thepage /\pageref{LastPage}};
+	\node (t) [font=\footnotesize, anchor=center] at (21cm, 27.5cm) {/};
   \end{tikzpicture}%
 }}
 \usepackage{tikz}
@@ -345,46 +345,61 @@
     \item[g.] ${\bf H}(\omega) = \frac{(200+j2\omega)}{(50+j5\omega)(1000+j\omega)}$
   \end{itemize}~
 \end{problem}
-\begin{answer}
-  \begin{itemize}
-    \item[a.] ~
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-    \item[b.] ~ 
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-    \item[c.] ~
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-    \item[d.] ~
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-    \item[e.] ~
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-    \item[f.] ~
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-    \item[g.] ~
-      \begin{center}
-        \includegraphics[scale=0.25]{./bode_plot.png}
-      \end{center}
-  \end{itemize}~
-\end{answer}
+% \begin{answer}
+%   \begin{itemize}
+%     \item[a.] ~
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%     \item[b.] ~ 
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%     \item[c.] ~
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%     \item[d.] ~
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%     \item[e.] ~
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%     \item[f.] ~
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%     \item[g.] ~
+%       \begin{center}
+%         \includegraphics[scale=0.25]{./bode_plot.png}
+%       \end{center}
+%   \end{itemize}~
+% \end{answer}
 \newpage
 \begin{problem}[{6.18}]
-	\\ \textbf{Given:}\\
+	\\ \textbf{Given:}
+  \begin{center}
+    \includegraphics[scale=0.25]{./pr6.18.png}
+  \end{center}
 	\textbf{Find:}
+  \begin{itemize}
+    \item[a.] An expression for ${\bf H}(\omega) = {\bf V}_o/{\bf V}_i$ in standard form.
+    \item[b.] Spectral plots for the magnitude and phase of ${\bf H}(\omega)$ given that $R=50~\Omega$ and $L = 2~mH$.
+    \item[c.] The cutoff frequency $\omega_c$ and the slope fo the magnitude (in dB) when $\omega/\omega_o\ll 1$
+  \end{itemize}~
 \end{problem}
 \newpage
 \begin{problem}[{6.19}]
-	\\ \textbf{Given:}\\
+	\\ \textbf{Given:}
+  \begin{center}
+    \includegraphics[scale=0.25]{./pr6.19.png}
+  \end{center}
 	\textbf{Find:}
+  \begin{itemize}
+    \item[a.] An expression for ${\bf H}(\omega) = {\bf V}_o/{\bf V}_i$ in standard form.
+    \item[b.] Spectral plots for the magnitude and phase of ${\bf H}(\omega)$ given that $R=50~\Omega$ and $L = 2~mH$.
+  \end{itemize}~
 \end{problem}
 \end{document}
